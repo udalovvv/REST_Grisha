@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Запись с id={{mod.id}}</title>
+</head>
+<body>
+    {{mod.title_of_mod}}<br>
+    {{mod.text_of_mod}}<br>
+    <hr>
+    {% for comment in mod.comments.all %}
+        {{comment.text_of_comment}}
+        {{comment.like.counter}}
+        <a href="/relation/comment/{{comment.id}}/delete">del</a>
+        <br>
+    {% endfor %}
+    <hr>
+    <form action="/relation/{{mod.id}}/create" method="POST">
+         {% csrf_token %}
+        <label>Введите комментарий</label><br>
+        <input type="text" name="comment" />
+
+         <input type="submit" value="Сохранить" >
+    </form>
+</body>
+</html>

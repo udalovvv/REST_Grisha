@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все записи</title>
+</head>
+<body>
+    {% for mod in mods %}
+
+        {{mod.title_of_mod}}<br>
+        {{mod.text_of_mod}}<br>
+        <a href="{{mod.id}}">Подробнее</a>
+        <hr>
+
+    {% endfor %}
+</body>
+</html>
